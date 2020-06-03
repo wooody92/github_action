@@ -24,4 +24,4 @@ jobs:
     - name: "Context"
       env:
         COMMIT_ID: ${{ github.sha }}
-      run: run echo "commit id => $COMMIT_ID"
+      run: echo "commit id => $COMMIT_ID"
