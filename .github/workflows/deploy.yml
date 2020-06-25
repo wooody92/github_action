@@ -1,9 +1,13 @@
+# 실행 될 action 이름이다.
 name: CI
 
+# deploy branch에 push 요청 시 아래 jobs를 실행한다.
 on:
   push:
     branches: [ deploy ]
 
+# github docker - ubuntu 환경 설정한다.
+# 아래 action이 실행 될 기본 경로를 working-directory로 설정한다.
 jobs:
   backend:
     name: CI with Gradle
@@ -26,4 +30,4 @@ jobs:
         run: chmod +x ./gradlew
 
       - name: Gradle 빌드
-        run: ./gradlew build
+        run: ./gradlew build -x test
