@@ -1,21 +1,16 @@
-# This is a basic workflow to help you get started with Actions
-
-name: CI
-
-# Controls when the action will run. Triggers the workflow on push or pull request
-# events but only for the master branch
 on:
   push:
-    branches: [ master ]
-  pull_request:
-    branches: [ master ]
+    branches:
+      - master
+
+name: Deploy String boot to Amazon EC2
+env:
+  PROJECT_NAME: action_codedeploy
 
 jobs:
   deploy:
     name: DEPLOY
     runs-on: ubuntu-18.04
-    env:
-      working-directory: ./BE
 
     steps:
       - name: Checkout
@@ -26,16 +21,8 @@ jobs:
         with:
           java-version: 1.8
 
-      - name: run pwd
-        run: pwd
-       
-      - name: run ls -al
-        run: ls -al
-        
       - name: Grant execute permission for gradlew
-        run: |
-          echo $pwd
-          chmod +x gradlew
+        run: chmod +x gradlew
         shell: bash
 
       - name: Build with Gradle
