@@ -11,7 +11,7 @@ jobs:
     defaults:
       run:
         shell: bash
-        working-directory: BE
+        working-directory: BE/issue-tracker
 
     steps:
       - name: 체크아웃 Github-Action
