@@ -24,10 +24,14 @@ jobs:
         with:
           java-version: 1.8
 
-      - name: Grant execute permission for gradlew
+      - name: run pwd
         run: pwd
-             ls -al
-             chmod +x gradlew
+     
+      - name: run ls -al
+        run: la -al
+       
+      - name: Grant execute permission for gradlew
+        run: chmod +x gradlew
         shell: bash
 
       - name: Build with Gradle
